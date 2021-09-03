@@ -95,17 +95,21 @@ window.addEventListener("load",function(){
 		$(this).removeClass("over");
 	});
 
-	$("#gnb li:nth-child(2) a").focusin(function(){
+	$("#gnb > ul > li:nth-child(2) > a").focusin(function(){
 		$(this).next().addClass("over");
+		$(this).addClass("over");
 	});
 	$("#gnb li li:last-child li:last-child a").focusout(function(){
 		$("#gnb .sub").removeClass("over");
+		$("#gnb li:nth-child(2) a").removeClass("over");
 	});
-	$("#gnb li:nth-child(3) a").focusin(function(){
+	$("#gnb > ul > li:nth-child(3) > a").focusin(function(){
 		$(this).next().addClass("over");
+		$(this).addClass("over");
 	});
 	$("#gnb li li:last-child li:last-child a").focusout(function(){
 		$("#gnb .sub").removeClass("over");
+		$("#gnb li:nth-child(3) a").removeClass("over");
 	});
 
 	var swiper = new Swiper(".mySwiper", {

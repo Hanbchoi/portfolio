@@ -67,7 +67,7 @@ $(function(){
 		$(".dim").addClass("active");
 		$(".close").addClass("active");
 	});
-	$(".close").click(function(e){
+	$(".close, .dim").click(function(e){
 		e.preventDefault();
 		$("body").removeClass("fixed");
 		$("#mobile").removeClass("active");

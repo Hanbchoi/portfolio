@@ -9,17 +9,17 @@ img{vertical-align:top;border:0}
 .clearfix::before,.clearfix::after{content:"";display:block}
 .clearfix::after{clear:both}
 #header{background:url(../images/keyvisual.jpg) no-repeat center 0;background-size:cover;height:50em;font-size:1em}
-#header .inner{margin:0 auto;padding:.625em;max-width:940px;height:6.25em}
+#header .inner{margin:0 auto;padding:1em;max-width:940px;height:6.25em;box-sizing:border-box;}
 #header .top{width:100%;position:fixed;left:0;top:0;z-index:100}
 #header.fixed .top{background-color:rgb(4,185,194,.6);}
-#header .inner .logo{float:left;margin-top:1em}
+#header .inner .logo{float:left;}
 #header .inner .logo a{display:block}
 #header .inner .menu{float:right}
 #header .inner .menu .tab{display:none;float:right;margin-top:1.1em}
 #gnb li{display:inline-block}
 #gnb li a{display:block;color:#fff;font-weight:600;padding:0 1.25em;line-height:5em;position:relative}
 #gnb li a::after{content:"";display:block;width:calc(100% - 2.5em);height:0;background-color:#9053a0;position:absolute;left:1.25em;bottom:0}
-#gnb li a:hover::after{content:"";display:block;width:calc(100% - 2.5em);height:.125em;background-color:#04b9c2;position:absolute;left:1.25em;bottom:0}
+/* #gnb li a:hover::after{content:"";display:block;width:calc(100% - 2.5em);height:.125em;background-color:#04b9c2;position:absolute;left:1.25em;bottom:0} */
 #gnb li a:hover{color:#04b9c2}
 #mobile{position:fixed;right:-15em;top:0;z-index:1000;padding:6.25em 0 0 1.375em;width:15em;height:100%;background-color:#fff;transition:right .4s;box-sizing:border-box}
 #mobile.active{right:0}
@@ -149,7 +149,7 @@ footer .sns a{display:inline-block;width:2.5em;line-height:2.5em;text-align:cent
 footer .copyright .line1{display:block}
 }
 @media only screen and (max-width:720px) {
-#header .inner{padding:.625em}
+#header .inner{padding:1em}
 #gnb{display:none}
 #header .inner .menu .tab{display:block}
 #page1 .title span br{display:none}
@@ -181,6 +181,10 @@ footer .copyright .line2{display:none}
 #page3 .title p br{display:none}
 #page4 .main_inner .title{text-align:center}
 #page4 .main_inner .title span{width:62%;display:inline-block}
+#page5 .inner .form_group .send input[type=submit] {
+    padding: 1em 1em;
+}
+.controller{display:none;}
 footer{text-align:center}
 footer .sns{float:none;display:inline-block;margin-top:1em}
 }

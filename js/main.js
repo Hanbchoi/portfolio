@@ -11,7 +11,7 @@ $(function(){
 
 	AOS.init({
 		easing:"ease-in-out-sine",
-		duration:2000,
+		duration:1000,
 		once:true
 	});
 
