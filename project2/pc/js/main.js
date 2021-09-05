@@ -226,10 +226,7 @@ $(function(){
 	// 		swiper.autoplay.stop();
 	// 	}
 	// });
- 
-	$(".apply").click(function(){
-		$(".apply").addClass("active");
-	});
+
 
 	$("span.ko").click(function(e){
 		e.preventDefault();

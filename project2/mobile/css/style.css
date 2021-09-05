@@ -11,7 +11,7 @@ body.fixed{overflow-y:hidden}
 .covid .close::before{content:"";display:block;width:1px;height:25px;background-color:#fff;transform:rotate(-45deg);position:absolute;right:15px;top:5px}
 .covid .close::after{content:"";display:block;width:1px;height:25px;background-color:#fff;transform:rotate(45deg);position:absolute;right:15px;top:5px}
 #header .top{padding:15px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;position:absolute;top:40px;z-index:1000;width:100%;height:60px;background-color:#fff}
-#header.cancle .top{position:fixed;top:0}
+#header.cancle .top{position:fixed;top:0;}
 #header .top .tab{width:20px;height:20px;position:relative}
 #header .top .tab span{position:absolute;left:0;top:50%;width:100%;margin-top:-1px;border-bottom:2px solid #000}
 #header .top.on .tab span{border-bottom:2px solid #fff}
