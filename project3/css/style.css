@@ -30,6 +30,7 @@ img{vertical-align:top;border:0}
 .dim{display:none;position:fixed;left:0;right:0;z-index:100;top:0;bottom:0;background-color:rgba(0,0,0,.6)}
 .dim.active{display:block}
 .btn_top{display:none;position:fixed;right:20px;bottom:28px;z-index:11;width:50px;height:50px;overflow:hidden;text-indent:-9999px;background:#04b9c2 url(../images/btn_top.png) no-repeat center center;cursor:pointer;border-radius:50%}
+.btn_top.active{display:block}
 #header .text{width:100%;position:absolute;z-index:0;top:13.5em;text-align:center}
 #header .text p{font-size:2.188em;margin-bottom:3.75rem;color:#fff;transform:translate(0,50px);opacity:0;transition:opacity 0.4s,transform .8s}
 #header .text span{display:block;margin-bottom:3.875rem;line-height:1.5;font-size:2.938em;font-weight:600;color:#fff;transform:translate(0,50px);opacity:0;transition:opacity 0.4s,transform .8s;transition-delay:.4s}

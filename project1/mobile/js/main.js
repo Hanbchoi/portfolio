@@ -51,14 +51,14 @@ window.addEventListener("load", function(){
 	var depth1Ul=gnb.firstElementChild;
 	var depth1Li=depth1Ul.children;
 	
-	var page=[];
+	var page=[]; 
 	for(var i=0; i<wrapper.children.length; i++){
 		if(wrapper.children[i].id.indexOf("page") !==-1){
 			page.push(wrapper.children[i]);
 		}
 	}
 	
-
+	console.log(page[0]);
 	var mainN;
 	var t=0;
 
