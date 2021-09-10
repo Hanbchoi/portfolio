@@ -248,7 +248,7 @@ window.addEventListener("load",function(){
 
 	var galleryw=1100;
 	var galleryAmount=0;
-	// var id=setInterval(rightMoving, 5000);
+	var id=setInterval(rightMoving, 5000);
 
 	$(".gallery .controls .left").click(function(e){
 		e.preventDefault();
