@@ -40,7 +40,7 @@ img{vertical-align:top;border:0}
 .controller{position:fixed;right:42px;top:50%;z-index:10;width:8px}
 .controller li{margin-top:20px;width:14px;height:14px}
 .controller li:first-child{margin-top:0}
-.controller li a{display:block;width:8px;height:8px;text-indent:-9999px;background-color:rgb(4,185,194,.6);border-radius:50%;}
+.controller li a{display:block;width:8px;height:8px;text-indent:-9999px;background-color:rgb(4,185,194,.3);border-radius:50%;}
 .controller li.on a{background-color:rgb(4,185,194,1);}
 section .title{padding:0 .625em}
 section .title h2{font-size:2.5em;line-height:1.7;font-weight:600;color:#000;text-align:center;opacity:0;transform:translateY(50px);transition:opacity 0.4s,transform .4s}

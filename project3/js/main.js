@@ -2,17 +2,20 @@ window.addEventListener("load",function(){
 	var header=document.getElementById("header");
 	var top=header.firstElementChild;
 
-	var gnb=document.getElementById("gnb");
+	
 	var dim=document.getElementsByClassName("dim")[0];
+	var tab=document.getElementsByClassName("tab")[0];
 
 	var body=document.body;
 	var wrapper=body.firstElementChild;
 	var section=document.getElementById("section");
 
-
+	var gnb=document.getElementById("gnb");
 	var depth1Ul=gnb.firstElementChild;
 	var depth1Li=depth1Ul.children;
 	var mobile=document.getElementById("mobile");
+	var mobileUl=mobile.firstElementChild;
+	var mobileLi=mobileUl.children;
 	var close=mobile.lastElementChild;
 
 	var controller=document.getElementsByClassName("controller")[0];
@@ -29,13 +32,19 @@ window.addEventListener("load",function(){
 		}
 	}
 	
-	var t=0;
-	var n;
-	
+	var winHalf;
+	var w;
+	var n=0;
+	var t=0; 
+	var pos=0;
+
+	setTimeout(function(){
+		header.classList.add("active");
+		controllerLi[n].classList.add("on");
+	}, 700);
 	
 	window.addEventListener("scroll",function(){
 		t=window.pageYOffset;
-		console.log(t);
 		if(t < page[0].offsetTop-winHalf){
 			n=0;
 		}
@@ -75,9 +84,6 @@ window.addEventListener("load",function(){
 			btn_top.classList.remove("active");
 		}
 	});
-	// var scrollTrigger=document.createEvent("UiEvent");
-	// scrollTrigger.initEvent("scroll");			 	
-	// window.dispatchEvent(scrollTrigger);
 
 	function categoryControl(){
 		if(page[4].classList.contains("active") == true){
@@ -91,8 +97,21 @@ window.addEventListener("load",function(){
 		}
 	}
 
-	var winHalf;
-	var w;
+	tab.addEventListener("click",function(e){
+		e.preventDefault();
+		body.classList.add("fixed");
+		mobile.classList.add("active");
+		dim.classList.add("active");
+		close.classList.add("active");
+	});
+	dim.addEventListener("click",function(e){
+		e.preventDefault();
+		closeMenu();
+	});
+	close.addEventListener("click",function(e){
+		e.preventDefault();
+		closeMenu();
+	});
 	
 	window.addEventListener("resize",function(){
 		winHalf=window.innerHeight/2;
@@ -100,133 +119,69 @@ window.addEventListener("load",function(){
 		
 		if(w > 720){
 			if(mobile.classList.contains("active")){
-				body.classList.remove("fixed");
-				mobile.classList.remove("active");
-				dim.classList.remove("active");
-				close.classList.remove("active");
+				closeMenu();
 			}
 		}
+		var scrollTrigger=document.createEvent("UiEvent");
+		scrollTrigger.initEvent("scroll");			 	
+		window.dispatchEvent(scrollTrigger);
 	});
 	var resizeTrigger=document.createEvent("UiEvent");
 	resizeTrigger.initEvent("resize");
 	window.dispatchEvent(resizeTrigger);
 
+	function closeMenu(){
+		body.classList.remove("fixed");
+		mobile.classList.remove("active");
+		dim.classList.remove("active");
+		close.classList.remove("active");
+	}
 
-//-------------------------------------------------
-// $(function(){
-	var n=0;
-	var t=0; 
-	var pos=0;
-	// var w;
+	for(var i=0; i<controllerLi.length; i++){
+		controllerLi[i].idx=i;
+		controllerLi[i].addEventListener("click",function(e){
+			e.preventDefault();
+			n=e.currentTarget.idx;
+			if(n == 0){
+				pos=header.offsetTop;
+			}
+			else{
+				pos=page[n-1].offsetTop;
+			}
+			window.scrollTo({top: pos, behavior:'smooth'});
+		});
+		mobileLi[i].idx=i;
+		mobileLi[i].addEventListener("click",function(e){
+			e.preventDefault();
+			n=e.currentTarget.idx;
+			if(n == 0){
+				pos=header.offsetTop;
+			}
+			else{
+				pos=page[n-1].offsetTop;
+			}
+			closeMenu();
+			window.scrollTo({top: pos, behavior:'smooth'});
+		});
+		depth1Li[i].idx=i;
+		depth1Li[i].addEventListener("click",function(e){
+			e.preventDefault();
+			n=e.currentTarget.idx;
+			if(n == 0){
+				pos=header.offsetTop;
+			}
+			else{
+				pos=page[n-1].offsetTop;
+			}
+			closeMenu();
+			window.scrollTo({top: pos, behavior:'smooth'});
+		});
+	}
 	
-	setTimeout(function(){
-		$("#header").addClass("active");
-		$(".controller li").eq(n).addClass("on");
-	}, 700);
 
-// 	$(window).scroll(function(){
-// 		t=$(window).scrollTop();
-// 		console.log(winHalf);
-// 		if(t < $("#page1").offset().top-winHalf){
-// 			n=0;
-// 		}
-// 		else if(t < $("#page2").offset().top-winHalf){
-// 			n=1;
-// 		}
-// 		else if(t < $("#page3").offset().top-winHalf){
-// 			n=2;
-// 		}
-// 		else if(t < $("#page4").offset().top-winHalf){
-// 			n=3;
-// 		}
-// 		else if(t < $("#page5").offset().top-winHalf){
-// 			n=4;
-// 		}
-// 		else{
-// 			n=5;
-// 		}
-
-// 		categoryControl();
-
-// 		$(".controller li").removeClass("on");
-// 		$(".controller li").eq(n).addClass("on");
-
-// 		if(t > 80){
-// 			$("#header").addClass("fixed"); 
-// 			$(".btn_top").fadeIn(300); 
-// 		}
-// 		else{
-// 			$("#header").removeClass("fixed");
-// 			$(".btn_top").fadeOut(300);
-// 		}
-// 	});
-// 	$(window).trigger("resize");
-// 	$(window).trigger("scroll");
-
-// 	function categoryControl(){
-// 		if($("#page5").hasClass("active") == true){
-// 			return;
-// 		}
-
-// 		if(n == 0){
-// 			$("#header").addClass("active");
-// 		}
-// 		else{
-// 			$("#page"+n).addClass("active");
-// 		}
-// 	}
-	
-	$(".tab").click(function(e){
-		e.preventDefault();
-		$("body").addClass("fixed");
-		$("#mobile").addClass("active");
-		$(".dim").addClass("active");
-		$(".close").addClass("active");
-	});
-	$(".close, .dim").click(function(e){
-		e.preventDefault();
-		$("body").removeClass("fixed");
-		$("#mobile").removeClass("active");
-		$(".dim").removeClass("active");
-		$(".close").removeClass("active");
-	});
-	
-// 	var winHalf;
-
-// 	$(window).resize(function(){
-// 		winHalf=$(window).height()/2;
-// 		w=$(window).width();
-
-// 		if(w > 720){
-// 			if($("#mobile").hasClass("active")){
-// 				$(".close").trigger("click");
-// 			}
-// 		}
-// 	});
-// 	$(window).trigger("resize");
-
-	$("nav li, .controller li").click(function(e){
-		e.preventDefault();
-		n=$(this).index();
-
-		if(n == 0){
-			pos=$("#header").offset().top; 
-		}
-		else{
-			pos=$("#page"+n).offset().top;
-		}
-
-		$("html").animate({scrollTop : pos}, 800);
-		$("body").removeClass("fixed");
-		$("#mobile").removeClass("active");
-		$(".tab").removeClass("active");
-		$(".dim").removeClass("active");
-		$(".close").removeClass("active");
-	});
-	$(".btn_top").click(function(e){
+	btn_top.addEventListener("click",function(e){
 		e.preventDefault();
 		pos=0;
-		$("html").animate({scrollTop : pos}, 800);
+		window.scrollTo({top: pos, behavior:'smooth'});
 	});
-
 });

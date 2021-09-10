@@ -71,7 +71,7 @@ window.addEventListener("load",function(){
 	});
 	pop_close.addEventListener("click", function(e){
 		e.preventDefault();
-		dep1Li[0].classList.remove("active");
+		dep1Li[0].classList.add("active");
 	});
 
 	window.addEventListener("scroll",function(){
@@ -142,7 +142,7 @@ window.addEventListener("load",function(){
 
 	
 	
-$(function(){
+
 	// $(".covid .close").click(function(){
 	// 	$(".covid").addClass("cancle");
 	// 	$("#header").addClass("cancle");
@@ -303,5 +303,4 @@ $(function(){
 			});
 		});
 	}
-});
 });

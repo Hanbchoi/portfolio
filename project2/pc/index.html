@@ -13,7 +13,39 @@
 <script src="assets/js/jquery.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <script src="js/main.js"></script>
+<script>
+$(function(){
+	var bgn=0;
 
+	motionBackground(bgn);
+
+	$("#page1 .logo > ul > li").mouseenter(function(e){
+		e.preventDefault();
+		bgn=$(this).index();
+		motionBackground(bgn);
+	});
+
+	function motionBackground(n){
+		$("#page1_bg").addClass("active");
+		$("#page1_bg").attr({"class":"case"+n})
+
+		$("#page1_bg").fadeIn(500, function(){
+			$("#page1").attr("class", "case"+n);
+			$("#page1").addClass("active");
+			$(this).hide();
+			$(this).removeClass("active");
+		});
+		$("#page1 .logo > ul > li").each(function(i){
+			if(i == bgn){
+				$(this).addClass("active");
+			}
+			else{
+				$(this).removeClass("active");
+			}
+		});
+	}
+});
+</script>
 </head>
 
 <body>
@@ -66,138 +98,138 @@
 			</div>
 		</div><!-- top end -->
 		<div class="menu_zone">
-		<div class="menu">
-			<nav id="gnb">
-				<ul>
-					<li>
-						<a href="">캠핑카 렌트</a>
-						<div class="search_pop">
-							<div class="pop_inner">
-								<div class="input_area">
-									<label>장소 또는 도시</label>
-									<input type="text"  placeholder="도시, 장소, 지역명을 입력하세요.">
-								</div>
-								<div class="date_area">
-									<div class="date_col">
-										<div class="rent">
-											<span>렌트 날짜</span>
-											<a href="">00월00일(월)</a>
-										</div>
-										<div class="return">
-											<span>반납 날짜</span>
-											<a href="">00월00일(월)</a>
-										</div>
+			<div class="menu">
+				<nav id="gnb">
+					<ul>
+						<li>
+							<a href="">캠핑카 렌트</a>
+							<div class="search_pop">
+								<div class="pop_inner">
+									<div class="input_area">
+										<label>장소 또는 도시</label>
+										<input type="text"  placeholder="도시, 장소, 지역명을 입력하세요.">
 									</div>
-								</div>
-								<div class="car_type">
-									<div class="type_col">
-										<span>차종</span>
-										<select>
-											<option selected>차종 선택</option>
-											<option>소나타</option>
-											<option>그랜저</option>
-											<option>아반떼</option>
-										</select>
-									</div>
-								</div>
-								<div class="right">
-									<div class="right_inner">
-										<a href="" class="promotion">프로모션 코드</a>
-										<div class="confirm">
-											<input type="submit" value="검색">
+									<div class="date_area">
+										<div class="date_col">
+											<div class="rent">
+												<span>렌트 날짜</span>
+												<a href="">00월00일(월)</a>
+											</div>
+											<div class="return">
+												<span>반납 날짜</span>
+												<a href="">00월00일(월)</a>
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="close"><a href="">숨기기</a></div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<a href="">브랜드</a>
-						<div class="sub">
-							<div class="sub_inner">
-								<div class="left">
-									<a href="">브랜드</a>
-								</div>
-								<div class="depth3">
-									<ul>
-										<li>
-											<a href="">CAMPER</a>
-											<ul>
-												<li><a href="">소개</a></li>
-												<li><a href="">이달의 프로모션</a></li>
-												<li><a href="">멤버십안내</a></li>
-												<li><a href="">갤러리</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="">CHUNCHUNCAR</a>
-											<ul>
-												<li><a href="">소개</a></li>
-												<li><a href="">이달의 프로모션</a></li>
-												<li><a href="">캠핑사이트</a></li>
-												<li><a href="">갤러리</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="">IT'S CAMPING</a>
-											<ul>
-												<li><a href="">소개</a></li>
-												<li><a href="">이달의 프로모션</a></li>
-												<li><a href="">스토어</a></li>
-												<li><a href="">갤러리</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="">DIVE IN ROAD</a>
-											<ul>
-												<li><a href="">소개</a></li>
-												<li><a href="">이달의 프로모션</a></li>
-												<li><a href="">커뮤니티</a></li>
-												<li><a href="">갤러리</a></li>
-											</ul>
-										</li>
-									</ul>
+									<div class="car_type">
+										<div class="type_col">
+											<span>차종</span>
+											<select>
+												<option selected>차종 선택</option>
+												<option>소나타</option>
+												<option>그랜저</option>
+												<option>아반떼</option>
+											</select>
+										</div>
+									</div>
+									<div class="right">
+										<div class="right_inner">
+											<a href="" class="promotion">프로모션 코드</a>
+											<div class="confirm">
+												<input type="submit" value="검색">
+											</div>
+										</div>
+									</div>
+									<div class="close"><a href="">숨기기</a></div>
 								</div>
 							</div>
-						</div>
-					</li>
-					<li>
-						<a href="">프로모션</a>
-						<div class="sub">
-							<div class="sub_inner">
-								<div class="left">
-									<a href="">프로모션</a>
-								</div>
-								<div class="depth3">
-									<ul>
-										<li><a href="">PROMOTION</a>
-											<ul>
-												<li><a href="">시즌 프로모션</a></li>
-											</ul>
-										</li>
-										<li><a href="">EVENT</a>
-											<ul>
-												<li><a href="">이벤트</a></li>
-											</ul>
-										</li>
-									</ul>
+						</li>
+						<li>
+							<a href="">브랜드</a>
+							<div class="sub">
+								<div class="sub_inner">
+									<div class="left">
+										<a href="">브랜드</a>
+									</div>
+									<div class="depth3">
+										<ul>
+											<li>
+												<a href="">CAMPER</a>
+												<ul>
+													<li><a href="">소개</a></li>
+													<li><a href="">이달의 프로모션</a></li>
+													<li><a href="">멤버십안내</a></li>
+													<li><a href="">갤러리</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="">CHUNCHUNCAR</a>
+												<ul>
+													<li><a href="">소개</a></li>
+													<li><a href="">이달의 프로모션</a></li>
+													<li><a href="">캠핑사이트</a></li>
+													<li><a href="">갤러리</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="">IT'S CAMPING</a>
+												<ul>
+													<li><a href="">소개</a></li>
+													<li><a href="">이달의 프로모션</a></li>
+													<li><a href="">스토어</a></li>
+													<li><a href="">갤러리</a></li>
+												</ul>
+											</li>
+											<li>
+												<a href="">DIVE IN ROAD</a>
+												<ul>
+													<li><a href="">소개</a></li>
+													<li><a href="">이달의 프로모션</a></li>
+													<li><a href="">커뮤니티</a></li>
+													<li><a href="">갤러리</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
 								</div>
 							</div>
-						</div>
-					</li>
-					<li>
-						<a href="">스토어</a>
-					</li>
-					<li>
-						<a href="">커뮤니티</a>
-					</li>
-				</ul>
-			</nav>
-			<div class="box">
-				<a href="">CAMPINGCAR REWARDS</a>
-			</div>
-		</div><!-- menu end -->
+						</li>
+						<li>
+							<a href="">프로모션</a>
+							<div class="sub">
+								<div class="sub_inner">
+									<div class="left">
+										<a href="">프로모션</a>
+									</div>
+									<div class="depth3">
+										<ul>
+											<li><a href="">PROMOTION</a>
+												<ul>
+													<li><a href="">시즌 프로모션</a></li>
+												</ul>
+											</li>
+											<li><a href="">EVENT</a>
+												<ul>
+													<li><a href="">이벤트</a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="">스토어</a>
+						</li>
+						<li>
+							<a href="">커뮤니티</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="box">
+					<a href="">CAMPINGCAR REWARDS</a>
+				</div>
+			</div><!-- menu end -->
 		</div><!-- menu_zone end -->
 	</header>
 	<div class="slider">
@@ -259,66 +291,62 @@
 	</div><!-- slider end -->
 	<section>
 		<div id="page1">
+			<div id="page1_bg"></div>
 			<div class="inner">
-				<div class="title"><h2>CAMPING CAR & SURVIVAL Brands</h2></div>
-				<div class="content">
+				<div class="title">
+					<h3>CAMPING CAR & SURVIVAL Brands</h3>
+				</div>
+				<div class="logo">
 					<ul>
 						<li>
-							<div class="brand">CAMMPER</div>
-							<div class="info">
-								<strong>Classic Upper Upscale</strong>
-								<div class="expl">
-									캠퍼는 사용자 맞춤 시설과 서비스로 비교할 수 없는 국내<br> 
-									최다 캠핑카 보유를 자랑합니다. 전국 각 지점의 보증된 서비<br>
-									스와 시설을 제공하고 있으며 고객에게 변함없는 만족감을 <br>
-									선사하고 있습니다. 
-								</div>
-								<a href="">자세히 보기</a>
+							<a href=""class="brand"><img src="images/b_logo1.png" alt="camperlogo"></a>
+							<div class="copy">
+								<ul>
+									<li><strong>Classic Upper Upscale</strong>
+									</li>
+									<li><p>캠퍼는 사용자 맞춤 시설과 서비스로 비교할 수 없는 국내 최다 캠핑카 보유를 자랑합니다. 전국 각 지점의 보증된 서비스와 시설을 제공하고 있으며 변함없는 만족감을 선사하고 있습니다.</p></li>
+									<li><a href=""><span>자세히 보기</span></a></li>
+								</ul>
 							</div>
 						</li>
 						<li>
-							<div class="brand">CHUNCHUN CAR</div>
-							<div class="info">
-								<strong>Classic Upper Upscale</strong>
-								<div class="expl">
-									캠퍼는 사용자 맞춤 시설과 서비스로 비교할 수 없는 국내<br> 
-									최다 캠핑카 보유를 자랑합니다. 전국 각 지점의 보증된 서비<br>
-									스와 시설을 제공하고 있으며 고객에게 변함없는 만족감을 <br>
-									선사하고 있습니다. 
-								</div>
-								<a href="">자세히 보기</a>
+							<a href=""class="brand"><img src="images/b_logo2.png" alt="chunchuncarlogo"></a>
+							<div class="copy">
+								<ul>
+									<li><strong>Light your moments at all around destination</strong>
+									</li>
+									<li><p>제주 공항에서 가장 가깝게 만날 수 있는 차박용 세미 캠핑카.<br>
+										2인 사용에 최적화 된 세미 캠핑카는 가볍게 몸만 오셔도 충분한 감성 캠핑과 차박을 즐길 수 있도록 필수 IT-ITEM으로 준비되어 있습니다.</p></li>
+									<li><a href=""><span>자세히 보기</span></a></li>
+								</ul>
 							</div>
 						</li>
 						<li>
-							<div class="brand">IT'S CAMPING</div>
-							<div class="info">
-								<strong>Classic Upper Upscale</strong>
-								<div class="expl">
-									캠퍼는 사용자 맞춤 시설과 서비스로 비교할 수 없는 국내<br> 
-									최다 캠핑카 보유를 자랑합니다. 전국 각 지점의 보증된 서비<br>
-									스와 시설을 제공하고 있으며 고객에게 변함없는 만족감을 <br>
-									선사하고 있습니다. 
-								</div>
-								<a href="">자세히 보기</a>
+							<a href="" class="brand"><img src="images/b_logo3.png" alt="itscampinglogo"></a>
+							<div class="copy">
+								<ul>
+									<li><strong>A journey for inspiration</strong>
+									</li>
+									<li><p>여행은 낯선 곳으로의 여정 안에서 다양한 라이프스타일을 가진 사람들과의 만남을 통해 새로운 경험과 발견을 하고, 끊임없이 창조와 성장을 해가는 과정입니다.<br>그 새로운 경험과 영감의 여정에 잇츠캠핑이 함께합니다.</p></li>
+									<li><a href=""><span>자세히 보기</span></a></li>
+								</ul>
 							</div>
 						</li>
 						<li>
-							<div class="brand">DIVE IN ROAD</div>
-							<div class="info">
-								<strong>Classic Upper Upscale</strong>
-								<div class="expl">
-									캠퍼는 사용자 맞춤 시설과 서비스로 비교할 수 없는 국내<br> 
-									최다 캠핑카 보유를 자랑합니다. 전국 각 지점의 보증된 서비<br>
-									스와 시설을 제공하고 있으며 고객에게 변함없는 만족감을 <br>
-									선사하고 있습니다. 
-								</div>
-								<a href="">자세히 보기</a>
+							<a href=""class="brand"><img src="images/b_logo4.png" alt="diveinroadlogo"></a>
+							<div class="copy">
+								<ul>
+									<li><strong>Mordern conveneience and design for balanced travel</strong>
+									</li>
+									<li><p>모든 것이 활동적인 캠퍼들을 위해 이상적으로 설계되었습니다.<br>다이브인로드의 편리한 대여서비스, 캠핑에 필요한 모든 옵션을 이용해 가장 다이나믹한 캠핑을 떠나세요.<br>다이브인로드는 캠퍼들의 새로운도전을 든든하게 뒷받침 합니다.</p></li>
+									<li><a href=""><span>자세히 보기</span></a></li>
+								</ul>
 							</div>
 						</li>
 					</ul>
-				</div><!-- content end -->
-			</div><!-- inner end -->
-		</div><!-- page1 end -->
+				</div>
+			</div>
+		</div>
 		<div id="page2">
 			<div class="inner">
 				<div class="title"><h2>Promotion</h2></div>
